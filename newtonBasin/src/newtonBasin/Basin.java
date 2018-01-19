@@ -24,7 +24,7 @@ public class Basin  extends JPanel{
 	private final static int waitTime = 20;
 	private final static int numOfRoots = 4;
 	
-	private static Color[] colours = {Color.red, Color.yellow, Color.blue, Color.green};
+	private static Color[] colours = {Color.black, Color.DARK_GRAY, Color.lightGray, Color.GRAY};
 	private static ComplexNumber[] roots = new ComplexNumber[numOfRoots];
 	private static Color[][] cordinates = new Color[DIMEN][DIMEN];
 	private static int[][] path = new int[waitTime][2];
@@ -86,7 +86,7 @@ public class Basin  extends JPanel{
 		
 		for(int x = 0; x < DIMEN; x++){
 			for(int y = 0; y < DIMEN; y++){
-				System.out.printf("\ncordinate : %d, %d\n", x,y);
+				//System.out.printf("\ncordinate : %d, %d\n", x,y);
 				double[] cordinate = convertIndex(x,y);
 				ComplexNumber x0 = new ComplexNumber(cordinate[0], cordinate[1]);
 				//System.out.println(x0.getString());
@@ -127,7 +127,7 @@ public class Basin  extends JPanel{
 					atRoot = MathLibrary.distance(x0, roots[i], DISTANCE);
 					if(atRoot){
 						cordinates[x][y] = colours[i];
-						System.out.println("setting color to" + i);
+						//System.out.println("setting color to" + i);
 						break;
 					}
 				}
@@ -159,10 +159,10 @@ public class Basin  extends JPanel{
 	
 	private static void initializeRoots(){
 		
-		roots[0] = new ComplexNumber(-1,0);
-		roots[1] = new ComplexNumber(0,1);
-		roots[2] = new ComplexNumber(0,-1);
-		roots[3]  = new ComplexNumber(1,0);
+		roots[0] = new ComplexNumber(0,0);
+		roots[1] = new ComplexNumber(1,1);
+		roots[2] = new ComplexNumber(1,-1);
+		roots[3]  = new ComplexNumber(-1,0);
 	}
 	
 	private static void initializeCordinates() {

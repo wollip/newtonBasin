@@ -37,14 +37,16 @@ public class MathLibrary {
 		return scalarMultiply(ret, Math.pow(scalar, b));
 	}
 	
+	public static ComplexNumber power(double a, ComplexNumber b) {
+		double theta = b.getImaginary() * Math.log(a);
+		double scalar = Math.pow(a, b.getReal());
+		return new ComplexNumber(scalar * Math.cos(theta), scalar * Math.sin(theta));
+	}
+	
 	public static boolean distance(ComplexNumber a, ComplexNumber b, double d){
 		double real = a.getReal() - b.getReal();
 		double imaginary = a.getImaginary() - b.getImaginary();
 		double c = Math.sqrt(Math.pow(real, 2) + Math.pow(imaginary, 2));
-		if( c < d){
-			return true;
-		}else{
-			return false;
-		}
+		return c < d;
 	}
 }
